@@ -8,6 +8,7 @@
 
 #import "NotesTableViewController.h"
 #import "Note.h"
+#import "AddNoteViewController.h"
 
 //this is private interface
 @interface NotesTableViewController ()
@@ -33,6 +34,19 @@
   note3.noteText = @"learn swift";
   
   self.notes = @[note1, note2, note3];
+  
+  UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                target:self
+                                action:@selector(addButtonTapped:)];
+  self.navigationItem.rightBarButtonItem = addButton;
+}
+
+-(void)addButtonTapped:(id)sender{
+  AddNoteViewController *addNoteViewController = [[AddNoteViewController alloc]
+                                                  initWithNibName:@"NoteViewController"
+                                                  bundle:[NSBundle mainBundle]];
+  
 }
 
 - (void)didReceiveMemoryWarning {
