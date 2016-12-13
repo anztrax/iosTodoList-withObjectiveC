@@ -1,13 +1,13 @@
 //
-//  NotesTableTableViewController.h
+//  Note.m
 //  TodoList
 //
 //  Created by andrew ananta on 12/14/16.
 //  Copyright © 2016 andrew ananta. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Note.h"
 
-@interface NotesTableTableViewController : UITableViewController
-  
+@implementation Note
+
 @end

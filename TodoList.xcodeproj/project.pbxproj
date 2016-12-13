@@ -14,6 +14,7 @@
 		49C2AC691E0061A20041BBFA /* TodoListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C2AC681E0061A20041BBFA /* TodoListTests.m */; };
 		49C2AC741E0061A20041BBFA /* TodoListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C2AC731E0061A20041BBFA /* TodoListUITests.m */; };
 		49C2AC8E1E0065D70041BBFA /* NotesTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C2AC8D1E0065D70041BBFA /* NotesTableTableViewController.m */; };
+		49C2AC911E0076A70041BBFA /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C2AC901E0076A70041BBFA /* Note.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		49C2AC751E0061A20041BBFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49C2AC8C1E0065D70041BBFA /* NotesTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesTableTableViewController.h; sourceTree = "<group>"; };
 		49C2AC8D1E0065D70041BBFA /* NotesTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesTableTableViewController.m; sourceTree = "<group>"; };
+		49C2AC8F1E0076A70041BBFA /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		49C2AC901E0076A70041BBFA /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				49C2AC4B1E0061A10041BBFA /* Supporting Files */,
 				49C2AC8C1E0065D70041BBFA /* NotesTableTableViewController.h */,
 				49C2AC8D1E0065D70041BBFA /* NotesTableTableViewController.m */,
+				49C2AC8F1E0076A70041BBFA /* Note.h */,
+				49C2AC901E0076A70041BBFA /* Note.m */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C2AC911E0076A70041BBFA /* Note.m in Sources */,
 				49C2AC501E0061A10041BBFA /* AppDelegate.m in Sources */,
 				49C2AC4D1E0061A10041BBFA /* main.m in Sources */,
 				49C2AC8E1E0065D70041BBFA /* NotesTableTableViewController.m in Sources */,

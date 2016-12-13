@@ -21,10 +21,11 @@
   // Override point for customization after application launch.
   
   NotesTableTableViewController *tableViewController = [[NotesTableTableViewController alloc]init];
+  UINavigationController *tableViewNavController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
   
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   self.window.backgroundColor = [UIColor whiteColor];
-  [self.window setRootViewController:tableViewController];
+  [self.window setRootViewController:tableViewNavController];
   [self.window makeKeyAndVisible];
   
   return YES;

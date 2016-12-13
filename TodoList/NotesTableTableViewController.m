@@ -7,46 +7,59 @@
 //
 
 #import "NotesTableTableViewController.h"
+#import "Note.h";
 
+//this is private interface
 @interface NotesTableTableViewController ()
+
+@property (copy, nonatomic) NSArray *notes;
 
 @end
 
 @implementation NotesTableTableViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  [super viewDidLoad];
+  
+  self.title = @"Todo List";
+  
+  Note *note1 = [[Note alloc]init];
+  note1.noteText = @"learn objective C";
+  
+  Note *note2 = [[Note alloc]init];
+  note2.noteText = @"learn react native";
+  
+  Note *note3 = [[Note alloc]init];
+  note3.noteText = @"learn swift";
+  
+  self.notes = @[note1, note2, note3];
 }
 
 - (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  
+  //when calling @"NoteCell" give them UITableViewCell for dequeuReusableCellWithIndetifier purpose
+  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"NoteCell"];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+   return self.notes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+  static NSString *CellIdentifier = @"NoteCell";
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier]  ;
+  
+  if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewStylePlain reuseIdentifier:CellIdentifier];
     
-    // Configure the cell...
-    
-    return cell;
+    Note *note = self.notes[indexPath.row];
+    cell.textLabel.text = note.noteText;
+  }
+
+  return cell;
 }
 
 
