@@ -6,17 +6,17 @@
 //  Copyright © 2016 andrew ananta. All rights reserved.
 //
 
-#import "NotesTableTableViewController.h"
-#import "Note.h";
+#import "NotesTableViewController.h"
+#import "Note.h"
 
 //this is private interface
-@interface NotesTableTableViewController ()
+@interface NotesTableViewController ()
 
 @property (copy, nonatomic) NSArray *notes;
 
 @end
 
-@implementation NotesTableTableViewController
+@implementation NotesTableViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];

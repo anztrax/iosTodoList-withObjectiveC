@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "NotesTableTableViewController.h"
+#import "NotesTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +20,7 @@
         didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
   
-  NotesTableTableViewController *tableViewController = [[NotesTableTableViewController alloc]init];
+  NotesTableViewController *tableViewController = [[NotesTableViewController alloc]init];
   UINavigationController *tableViewNavController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
   
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
