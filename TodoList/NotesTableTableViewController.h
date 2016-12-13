@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  NotesTableTableViewController.h
 //  TodoList
 //
 //  Created by andrew ananta on 12/14/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface NotesTableTableViewController : UITableViewController
 
 @end
-
