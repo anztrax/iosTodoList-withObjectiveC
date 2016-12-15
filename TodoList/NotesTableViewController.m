@@ -46,7 +46,8 @@
   AddNoteViewController *addNoteViewController = [[AddNoteViewController alloc]
                                                   initWithNibName:@"NoteViewController"
                                                   bundle:[NSBundle mainBundle]];
-  
+  //NOTE : presentViewController is not stacked to navigation
+  [self presentViewController:addNoteViewController animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
