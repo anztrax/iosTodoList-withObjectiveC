@@ -39,12 +39,12 @@
                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                 target:self
                                 action:@selector(addButtonTapped:)];
-  self.navigationItem.rightBarButtonItem = addButton;
+  self.navigationItem.leftBarButtonItem = addButton;
 }
 
 -(void)addButtonTapped:(id)sender{
   AddNoteViewController *addNoteViewController = [[AddNoteViewController alloc]
-                                                  initWithNibName:@"NoteViewController"
+                                                  initWithNibName:@"AddNoteViewController"
                                                   bundle:[NSBundle mainBundle]];
   //NOTE : presentViewController is not stacked to navigation
   [self presentViewController:addNoteViewController animated:YES completion:nil];
