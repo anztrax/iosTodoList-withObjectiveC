@@ -11,7 +11,7 @@
 #import "AddNoteViewController.h"
 
 //this is private interface
-@interface NotesTableViewController ()
+@interface NotesTableViewController () <AddNoteViewControllerDeletegate>
 
 @property (copy, nonatomic) NSArray *notes;
 
@@ -24,30 +24,59 @@
   
   self.title = @"Todo List";
   
-  Note *note1 = [[Note alloc]init];
-  note1.noteText = @"learn objective C";
-  
-  Note *note2 = [[Note alloc]init];
-  note2.noteText = @"learn react native";
-  
-  Note *note3 = [[Note alloc]init];
-  note3.noteText = @"learn swift";
-  
-  self.notes = @[note1, note2, note3];
+  if([Note readNotesFromFile] == nil){
+    self.notes = @[];
+  }else{
+    self.notes = [Note readNotesFromFile];
+  }
   
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                 target:self
                                 action:@selector(addButtonTapped:)];
-  self.navigationItem.leftBarButtonItem = addButton;
+  
+  UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc]
+                                initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                target:self
+                                action:@selector(deleteButtonTapped:)];
+  
+   self.navigationItem.leftBarButtonItem = addButton;
+  self.navigationItem.rightBarButtonItem = deleteButton;
+
+}
+
+-(void)deleteButtonTapped:(id)sender{
+  //deleting data in disk
+  [Note removeArchiveFile];
+  
+  //deleting data in memory
+  self.notes = nil;
+  [self.tableView reloadData];
 }
 
 -(void)addButtonTapped:(id)sender{
   AddNoteViewController *addNoteViewController = [[AddNoteViewController alloc]
                                                   initWithNibName:@"AddNoteViewController"
                                                   bundle:[NSBundle mainBundle]];
+  addNoteViewController.delegate = self;
+  
   //NOTE : presentViewController is not stacked to navigation
   [self presentViewController:addNoteViewController animated:YES completion:nil];
+}
+
+-(void)saveNote:(Note *)note{
+  NSLog(@"saved Note callted : %@",note.noteText);
+  
+  [self dismissViewControllerAnimated:YES completion:nil];
+  
+  NSMutableArray *mutableNotes = [[NSMutableArray alloc]initWithArray:self.notes];
+  [mutableNotes addObject:note];
+ 
+  //copy and mutableCopy, copy is immutable version and NSArray is immutable
+  self.notes = [mutableNotes copy];
+  
+  [Note saveNotesToFile:self.notes];
+  [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
